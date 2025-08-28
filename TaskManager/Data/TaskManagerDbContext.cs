@@ -11,15 +11,15 @@ namespace TaskManager.Data
         {
         }
 
-        //public DbSet<Tasks> Tasks { get; set; }
-        //public DbSet<TasksAssignnments> TasksAssignnments { get; set; }
+        public DbSet<Tasks> Tasks { get; set; }
+        public DbSet<TaskAssignment> TasksAssignments { get; set; }
+        public DbSet<SubTask> SubTasks { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //    modelBuilder.Entity<Tasks>().Property(t => t.Priority).HasConversion<string>();
-            //    modelBuilder.Entity<Tasks>().Property(t => t.Status).HasConversion<string>();
+            modelBuilder.Entity<Tasks>().Property(t => t.Priority).HasConversion<string>();
+            modelBuilder.Entity<Tasks>().Property(t => t.Status).HasConversion<string>();
 
-            //modelBuilder.Entity<User>().Property(u => u.Role).HasConversion<string>();
-            //modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique(); // Ensure unique email addresses
+
 
 
 
