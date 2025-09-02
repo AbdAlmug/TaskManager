@@ -11,6 +11,6 @@ namespace TaskManager.Models
         public required string SubTaskName { get; set; }
         public bool Completed { get; set; } = false;
         public int TaskId { get; set; } // Foreign key to Tasks
-        public Tasks Task { get; set; } = null!;// Navigation property to Tasks
+        public Tasks Tasks { get; set; } = null!;// Navigation property to Tasks
     }
-}
+} 

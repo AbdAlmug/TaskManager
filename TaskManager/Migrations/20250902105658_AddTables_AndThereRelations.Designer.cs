@@ -12,8 +12,8 @@ using TaskManager.Data;
 namespace TaskManager.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250824174811_AddTasks_AddTasksAssignments_AddSubTasks_KeyBetweenThem")]
-    partial class AddTasks_AddTasksAssignments_AddSubTasks_KeyBetweenThem
+    [Migration("20250902105658_AddTables_AndThereRelations")]
+    partial class AddTables_AndThereRelations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,6 +158,72 @@ namespace TaskManager.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TaskManager.Models.Priority", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Priorities");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            Name = "Low"
+                        },
+                        new
+                        {
+                            id = 2,
+                            Name = "Medium"
+                        },
+                        new
+                        {
+                            id = 3,
+                            Name = "High"
+                        });
+                });
+
+            modelBuilder.Entity("TaskManager.Models.Status", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Statuses");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            Name = "Not Started"
+                        },
+                        new
+                        {
+                            id = 2,
+                            Name = "In Progress"
+                        },
+                        new
+                        {
+                            id = 3,
+                            Name = "Completed"
+                        });
+                });
+
             modelBuilder.Entity("TaskManager.Models.SubTask", b =>
                 {
                     b.Property<int>("Id")
@@ -185,11 +251,11 @@ namespace TaskManager.Migrations
 
             modelBuilder.Entity("TaskManager.Models.TaskAssignment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("AssignmentTo")
                         .IsRequired()
@@ -198,7 +264,7 @@ namespace TaskManager.Migrations
                     b.Property<int>("TaskId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.HasIndex("AssignmentTo");
 
@@ -209,14 +275,14 @@ namespace TaskManager.Migrations
 
             modelBuilder.Entity("TaskManager.Models.Tasks", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TaskId"));
 
-                    b.Property<DateOnly>("CompletionOn")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CompletionOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -227,38 +293,33 @@ namespace TaskManager.Migrations
                     b.Property<DateOnly>("DueOn")
                         .HasColumnType("date");
 
-                    b.Property<bool>("IsOverdue")
+                    b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateOnly>("ModifiedOn")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Notes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PendingDays")
+                    b.Property<int>("PriorityId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Priority")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Progress")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("StartOn")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("StartOn")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TaskName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("TaskId");
 
-                    b.HasKey("id");
+                    b.HasIndex("PriorityId");
+
+                    b.HasIndex("StatusId");
 
                     b.ToTable("Tasks");
                 });
@@ -283,7 +344,6 @@ namespace TaskManager.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -385,32 +445,61 @@ namespace TaskManager.Migrations
 
             modelBuilder.Entity("TaskManager.Models.SubTask", b =>
                 {
-                    b.HasOne("TaskManager.Models.Tasks", "Task")
+                    b.HasOne("TaskManager.Models.Tasks", "Tasks")
                         .WithMany("SubTasks")
                         .HasForeignKey("TaskId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Task");
+                    b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("TaskManager.Models.TaskAssignment", b =>
                 {
-                    b.HasOne("TaskManager.Models.Users", "User")
+                    b.HasOne("TaskManager.Models.Users", "Users")
                         .WithMany()
                         .HasForeignKey("AssignmentTo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TaskManager.Models.Tasks", "Task")
+                    b.HasOne("TaskManager.Models.Tasks", "Tasks")
                         .WithMany("TaskAssignments")
                         .HasForeignKey("TaskId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Task");
+                    b.Navigation("Tasks");
 
-                    b.Navigation("User");
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("TaskManager.Models.Tasks", b =>
+                {
+                    b.HasOne("TaskManager.Models.Priority", "Priorities")
+                        .WithMany("Tasks")
+                        .HasForeignKey("PriorityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskManager.Models.Status", "Statuses")
+                        .WithMany("Tasks")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Priorities");
+
+                    b.Navigation("Statuses");
+                });
+
+            modelBuilder.Entity("TaskManager.Models.Priority", b =>
+                {
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("TaskManager.Models.Status", b =>
+                {
+                    b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("TaskManager.Models.Tasks", b =>

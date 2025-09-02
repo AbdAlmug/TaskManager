@@ -12,8 +12,8 @@ using TaskManager.Data;
 namespace TaskManager.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250824142902_AddEFTables")]
-    partial class AddEFTables
+    [Migration("20250902105203_init_database")]
+    partial class init_database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,7 +178,6 @@ namespace TaskManager.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
