@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
 using TaskManager.Models;
 
-namespace TaskManager.Data
+
+namespace TaskManager.DataAccess.Data
 {
     public class TaskManagerDbContext : IdentityDbContext<Users>
     {
@@ -43,7 +44,7 @@ namespace TaskManager.Data
                 .HasForeignKey(ta => ta.TaskId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-          
+
 
 
 

@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using TaskManager.Data;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using TaskManager.DataAccess.Data;
 using TaskManager.Models;
+
 
 namespace TaskManager.Services
 {

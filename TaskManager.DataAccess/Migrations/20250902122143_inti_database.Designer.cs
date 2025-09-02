@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TaskManager.Data;
+using TaskManager.DataAccess.Data;
 
 #nullable disable
 
-namespace TaskManager.Migrations
+namespace TaskManager.DataAccess.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250902105658_AddTables_AndThereRelations")]
-    partial class AddTables_AndThereRelations
+    [Migration("20250902122143_inti_database")]
+    partial class inti_database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

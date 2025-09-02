@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TaskManager.ViewModels
+namespace TaskManager.Models.ViewModels
 {
     public class VerifyEmailViewModel
     {

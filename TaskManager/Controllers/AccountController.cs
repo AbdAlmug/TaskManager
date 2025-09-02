@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskManager.Models;
 using TaskManager.Services;
-using TaskManager.ViewModels;
+using TaskManager.Models.ViewModels;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TaskManager.Controllers

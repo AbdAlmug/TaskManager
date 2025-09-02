@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using TaskManager.Services;
-using TaskManager.Data;
+using TaskManager.DataAccess.Data;
+using TaskManager.DataAccess.Repository;
+using TaskManager.DataAccess.Repository.IRepository;
 using TaskManager.Models;
+using TaskManager.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +27,12 @@ builder.Services.AddIdentity<Users, IdentityRole>(option =>
 }).AddEntityFrameworkStores<TaskManagerDbContext>().AddDefaultTokenProviders();
 
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
 builder.Services.AddScoped<IEmailService, EmailService>();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -49,5 +56,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}/{id?}");
+app.MapRazorPages();
 
 app.Run();
