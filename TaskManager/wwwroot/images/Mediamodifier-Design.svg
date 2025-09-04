@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="118" height="35" viewBox="0 0 118 35" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
+<g transform="matrix(1 0 0 1 59 17.5)" id="0c986534-386c-4184-a87b-1c4aeab8d639"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-59" y="-17.5" rx="0" ry="0" width="118" height="35" />
+</g>
+<g transform="matrix(Infinity NaN NaN Infinity 0 0)" id="dec46342-de63-4eef-8989-1844ea819f92"  >
+</g>
+<g transform="matrix(0.03 0 0 0.03 115.58 35)"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(9,109,217); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-17.5, -17.5)" d="M 4.63564 15.8644 L 6.94797 13.552 L 6.95038 13.5496 L 11.3006 13.5496 L 9.56969 15.2806 L 9.12278 15.7275 L 7.35024 17.5 L 7.56977 17.7201 L 17.5 27.6498 L 27.6498 17.5 L 25.8766 15.7275 L 25.7518 15.602 L 23.6994 13.5496 L 28.0496 13.5496 L 28.052 13.552 L 29.8644 15.3644 L 32 17.5 L 17.5 32 L 3 17.5 L 4.63564 15.8644 Z M 17.5 3 L 25.8784 11.3784 L 21.5282 11.3784 L 17.5 7.35024 L 13.4718 11.3784 L 9.12158 11.3784 L 17.5 3 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(0.03 0 0 0.03 115.24 34.95)"  >
+<linearGradient id="SVGID_45" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1 0 0 1 0 0)"  x1="8.62526" y1="14.0888" x2="5.56709" y2="17.1469">
+<stop offset="0%" style="stop-color:rgb(0,58,140);stop-opacity: 1"/>
+<stop offset="96.37%" style="stop-color:rgb(9,109,217);stop-opacity: 0"/>
+</linearGradient>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_45); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-7.1, -15.81)" d="M 7.35025 17.5 L 9.1228 15.7275 L 9.5697 15.2805 L 7.83937 13.5496 L 6.95039 13.5496 L 6.94798 13.552 L 4.63564 15.8644 L 6.8551 18.073 L 7.35025 17.5 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(0.03 0 0 0.03 115.91 34.94)"  >
+<linearGradient id="SVGID_46" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1 0 0 1 0 0)"  x1="26.2675" y1="14.1279" x2="28.7404" y2="16.938">
+<stop offset="0%" style="stop-color:rgb(0,58,140);stop-opacity: 1"/>
+<stop offset="100%" style="stop-color:rgb(9,109,217);stop-opacity: 0"/>
+</linearGradient>
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_46); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-27.81, -15.61)" d="M 25.8767 15.7275 L 27.6498 17.5 L 27.4743 17.6755 L 27.4749 17.6761 L 29.8644 15.3644 L 28.0521 13.552 L 28.0497 13.5496 L 27.8736 13.5496 L 25.7518 15.602 L 25.8767 15.7275 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(0.03 0 0 0.03 115.58 35.04)"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(24,144,255); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-17.5, -18.83)" d="M 6.94549 13.5496 L 6.9479 13.552 L 9.12272 15.7275 L 17.4999 24.1041 L 28.0544 13.5496 L 6.94549 13.5496 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(0.03 0 0 0.03 118 35)" style="" id="0e9490c0-7015-4d8f-8ae3-1d1c2053e99f"  >
+		<text xml:space="preserve" font-family="Lato" font-size="19" font-style="normal" font-weight="400" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-57.48" y="5.97" >Task Manager</tspan></text>
+</g>
+</svg>

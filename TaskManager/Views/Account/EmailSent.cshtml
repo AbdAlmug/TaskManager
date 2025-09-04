@@ -3,13 +3,31 @@
     Layout = "_AccountLayout";
 }
 
-<div class="accoount-container">
-    <div class="account-box">
-        <h2 class="text-center mb-4">Email Send</h2>
-        <p class="text-center">A verification email has been sent to your email address. Please check your inbox and follow the instructions to verify your email.</p>
-        <div class="text-center mt-2">
-            <a asp-controller="Account" asp-action="Login" class="text-decoration-none mt-3">Back to Login</a>
-        </div>
+<div class="auth-main">
+    <div class="auth-wrapper v3">
+        <form class="auth-form" asp-action="VerifyEmail" method="post">
+            <div class="auth-header">
+                <a href="#"><img src="~/images/Untitled.svg" alt="img"></a>
+            </div>
+            <div class="card my-5">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-end mb-4">
+                        <h3 class="mb-0"><b>Hi, Check Your Mail</b></h3>
+                    </div>
+                    <p class="text-muted">We have sent a password recover instructions to your email.</p>
+                    <div class="d-grid mt-3">
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Log in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="auth-footer row">
+                <!-- <div class=""> -->
+                <div class="col my-1">
+                    <p class="m-0">Copyright © <a href="#">Codedthemes</a></p>
+                </div>
+                <!-- </div> -->
+            </div>
+        </form>
     </div>
 </div>
 

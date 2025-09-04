@@ -6,38 +6,55 @@
     Layout = "_AccountLayout";
 }
 
-<div class="accoount-container">
-    <div class="account-box">
-        <h2 class="text-center mb-4">Register</h2>
-        <form asp-action="Register" method="post">
+
+<div class="auth-main">
+    <div class="auth-wrapper v3">
+        <form class="auth-form" asp-action="Register" method="post">
             @Html.AntiForgeryToken()
-            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-            <div class="mb-3">
-                <label asp-for="Name" class="form-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span class="text-danger" asp-validation-for="Name"></span>
+            <div class="auth-header">
+                <a href="#"><img src="~/images/Untitled.svg" alt="img"></a>
             </div>
-            <div class="mb-3">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span class="text-danger" asp-validation-for="Email"></span>
+            <div class="card my-5">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-end mb-4">
+                        <h3 class="mb-0"><b>Register</b></h3>
+                        <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Already have an account?</a>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Email Address" />
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Email Address" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" placeholder="Password" />
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Password" />
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <input type="submit" value="Register" class="btn btn-primary p-2 w-100" />
+                    </div>
+                    <div class="d-grid mt- text-center">
+                        <a asp-controller="Account" asp-action="Login" class="text-decoration-none mt-3">Back</a>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label asp-for="Password" class="form-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span class="text-danger" asp-validation-for="Password"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="ConfirmPassword" class="form-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
-            </div>
-            <input type="submit" value="Register" class="btn btn-success p-2 w-100" />
-            <p class="text-center mt-2">
-                Already have an account? <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Login</a>
-            </p>
-            <div class="text-center">
-                <a asp-controller="Home" asp-action="Index" class="text-decoration-none mt-3">Back</a>
+            <div class="auth-footer row">
+                <!-- <div class=""> -->
+                <div class="col my-1">
+                    <p class="m-0">Copyright © <a href="#">Codedthemes</a></p>
+                </div>
+                <!-- </div> -->
             </div>
         </form>
     </div>

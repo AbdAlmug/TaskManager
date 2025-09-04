@@ -6,41 +6,58 @@
     Layout = "_AccountLayout";
 }
 
-<div class="accoount-container">
-    <div class="account-box">
-        <h2 class="text-center mb-4">Login</h2>
-        <form asp-action="Login" method="post">
-            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-            <div class="mb-3">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span class="text-danger" asp-validation-for="Email"></span>
+
+<div class="auth-main">
+
+    <div class="auth-wrapper v3">
+        <form class="auth-form" asp-action="Login" method="post">
+            <div class="auth-header">
+                <a href="#"><img src="~/images/Untitled.svg" alt="img"></a>
             </div>
-            <div class="mb-3">
-                <label asp-for="Password" class="form-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span class="text-danger" asp-validation-for="Password"></span>
+            <div class="card my-5">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-end mb-4">
+                        <h4 class="mb-0"><b>Login</b></h4>
+                        <a asp-controller="Account" asp-action="Register" class="text-decoration-none">Don't have an account?</a>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Email Address" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" placeholder="Password" />
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="d-flex mt-1 justify-content-between">
+                        <div class="form-check">
+                            <label asp-for="RememberMe" class="form-check-label">
+                                <input asp-for="RememberMe" class="form-check-input" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                        <a asp-controller="Account" asp-action="ForgotPassword" class="text-decoration-none">
+                            Forgot password?
+                        </a>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <input type="submit" value="Login" class="btn btn-primary p-2 w-100" />
+                    </div>
+                </div>
             </div>
-            <div class="float-end">
-                <a asp-controller="Account" asp-action="VerifyEmail" class="text-decoration-none">
-                    Forgot password?
-                </a>
+            <div class="auth-footer row">
+                <!-- <div class=""> -->
+                <div class="col my-1">
+                    <p class="m-0">Copyright © <a href="#">Codedthemes</a></p>
+                </div>
+                <!-- </div> -->
             </div>
-            <div class="mb-3 form-check">
-                <label asp-for="RememberMe" class="form-check-label">
-                    <input asp-for="RememberMe" class="form-check-input" />
-                    @Html.DisplayNameFor(m => m.RememberMe)
-                </label>
-            </div>
-            <input type="submit" value="Login" class="btn btn-success p-2 w-100" />
-            <p class="text-center mt-2">
-                Don't have an account? <a asp-controller="Account" asp-action="Register" class="text-decoration-none">Register</a>
-            </p>
-            <div class="text-center">
-                <a asp-controller="Home" asp-action="Index" class="text-decoration-none mt-3">Back</a>
-            </div>
+
         </form>
     </div>
+
 </div>
 
 @section Scripts {

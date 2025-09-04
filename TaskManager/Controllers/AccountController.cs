@@ -88,13 +88,13 @@ namespace TaskManager.Controllers
             return View(model);
         }
         [HttpGet]
-        public IActionResult VerifyEmail()
+        public IActionResult ForgotPassword()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> VerifyEmail(VerifyEmailViewModel model)
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace TaskManager.Controllers
                 return View(model);
             }
             var resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
-            var resetLink = Url.Action("ChangePassword", "Account", new { email = model.Email, token = resetToken }, Request.Scheme);
+            var resetLink = Url.Action("ReSetPassword", "Account", new { email = model.Email, token = resetToken }, Request.Scheme);
 
             var subject = "Reset Password";
             var body = $"Click the link to reset your password: <a href='{resetLink}'>Reset Password</a>";
@@ -118,13 +118,13 @@ namespace TaskManager.Controllers
         }
 
         [HttpGet]
-        public IActionResult ChangePassword(string email, string token)
+        public IActionResult ReSetPassword(string email, string token)
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(token))
             {
-                return RedirectToAction("VerifyEmail", "Account");
+                return RedirectToAction("ForgotPassword", "Account");
             }
-            var model = new ChangePasswordViewModel
+            var model = new ReSetPasswordViewModel
             {
                 Email = email,
                 Token = token
@@ -134,7 +134,7 @@ namespace TaskManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        public async Task<IActionResult> ReSetPassword(ReSetPasswordViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -174,7 +174,7 @@ namespace TaskManager.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
     }
 }
