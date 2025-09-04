@@ -35,7 +35,7 @@ namespace TaskManager.Services
                 {
                     var adminUser = new Users
                     {
-                        FullName = "Abdallah Al-Mughrabi",
+                        FullName = "Admin",
                         UserName = adminEmail,
                         NormalizedUserName = adminEmail.ToUpper(),
                         Email = adminEmail,
